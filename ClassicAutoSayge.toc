@@ -1,0 +1,7 @@
+## Interface: 11304
+## Title: ClassicAutoSayge
+## SavedVariables: ClassicAutoSayge
+## Author: ThatKalle
+## Notes: A minimalist Darkmoon Faire Sayge auto gossip Addon.
+## Version: 1.0.0
+ClassicAutoSayge.lua
