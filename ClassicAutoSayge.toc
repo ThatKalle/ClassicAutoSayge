@@ -3,5 +3,5 @@
 ## SavedVariables: ClassicAutoSayge
 ## Author: ThatKalle
 ## Notes: A minimalist Darkmoon Faire Sayge auto gossip Addon.
-## Version: 1.0.0
+## Version: 1.1.0
 ClassicAutoSayge.lua
