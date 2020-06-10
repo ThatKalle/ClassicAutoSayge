@@ -4,7 +4,9 @@
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
 -- Version: 1.0.0
 
-  
+local firstOption = 1
+local secondOption = 1
+
 casFrame = CreateFrame("FRAME")
 
 local function casRegisterEvents()
@@ -15,7 +17,18 @@ local function SkipGossip()
     local void, gossipType = GetGossipOptions()
     if gossipType then
         if gossipType == "gossip" then
-            SelectGossipOption(1)
+            local gossipOptionsNum = GetNumGossipOptions()
+            if gossipOptionsNum == 1 then
+                SelectGossipOption(1)
+            end
+            if gossipOptionsNum == 4 then
+                print("Selecting Option " .. firstOption)
+                SelectGossipOption(firstOption)
+            end
+            if gossipOptionsNum == 3 then
+                print("Selecting Option " .. secondOption)
+                SelectGossipOption(secondOption)
+            end
         end
     end
 end
