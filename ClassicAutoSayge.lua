@@ -4,7 +4,7 @@
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
 -- Version: 1.0.0
 
-local firstOption = 2
+local firstOption = 1
 local secondOption = 1
 
 casFrame = CreateFrame("FRAME")
