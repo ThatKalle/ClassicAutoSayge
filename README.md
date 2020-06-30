@@ -1,6 +1,6 @@
 # ClassicAutoSayge
 
-Upon interaction with [Sayge](https://classic.wowhead.com/npc=14822/sayge) in Darkmoon Faire the addon will automatically collect the 10%dmg buff, [Sayge's Dark Fortune of Damage](https://classic.wowhead.com/spell=23768/sayges-dark-fortune-of-damage).
+Upon interaction with [Sayge](https://classic.wowhead.com/npc=14822/sayge) in Darkmoon Faire the addon will automatically collect the [Sayge's Dark Fortune](https://classic.wowhead.com/search?q=sayges+dark+fortune) buff of your choosing.
 
 ## Installation
 
@@ -8,7 +8,9 @@ Make sure the folder is named `ClassicAutoSayge` in your `Interface\AddOns` fold
 
 ## Configuration
 
-You can change the answers you want to be picked by changing the values `firstOption` and `secondOption` in `ClassicAutoSayge.lua` to your desired answers.
+ * `/ClassicAutoSayge` or `/cas` -- Options panel
+
+You can change the answers you want to be picked by changing the values for `firstOption` and `secondOption` to your desired answers.
 
 | Fortune | firstOption  | secondOption |
 | ------------- | ------------- | ------------- |
@@ -21,3 +23,7 @@ You can change the answers you want to be picked by changing the values `firstOp
 | [Sayge's Dark Fortune of Stamina](https://classic.wowhead.com/spell=23737/sayges-dark-fortune-of-stamina) (+10% Stamina) | 3  | 1  |
 | [Sayge's Dark Fortune of Strength](https://classic.wowhead.com/spell=23735/sayges-dark-fortune-of-strength) (+10% Strength) | 3  | 2  |
 
+### Special Thanks
+
+ * [Kim Brandt](https://github.com/myrveln)
+ * [@rainfordays](https://github.com/rainfordays)

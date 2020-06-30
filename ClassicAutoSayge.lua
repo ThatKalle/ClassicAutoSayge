@@ -2,51 +2,81 @@
 -- Name: ClassicAutoSayge
 -- Author: ThatKalle
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
--- Version: 1.1.0
+-- Version: 2.0.0
 
-local firstOption = 1
-local secondOption = 1
+local _, A = ...
 
-casFrame = CreateFrame("FRAME")
+A.colorHex = "6ae597"
+A.addonName = "|cff" .. A.colorHex .. "ClassicAutoSayge|r "
 
-local function casRegisterEvents()
-    casFrame:RegisterEvent("GOSSIP_SHOW")
+local E = CreateFrame("Frame")
+E:RegisterEvent("ADDON_LOADED")
+E:RegisterEvent("PLAYER_ENTERING_WORLD")
+E:RegisterEvent("GOSSIP_SHOW")
+E:SetScript("OnEvent", function(self, event, ...)
+  return self[event] and self[event](self, ...)
+end)
+
+function E:ADDON_LOADED(name)
+    if name ~= "ClassicAutoSayge" then 
+        return
+    end
+    ClassicAutoSayge = ClassicAutoSayge or {}
+    ClassicAutoSayge.firstOption = ClassicAutoSayge.firstOption or ""
+    ClassicAutoSayge.secondOption = ClassicAutoSayge.secondOption or ""
+  
+    if ClassicAutoSayge.loginMessage == nil then 
+        ClassicAutoSayge.loginMessage = true 
+    end
+    
+    SLASH_CLASSICAUTOSAYGE1= "/ClassicAutoSayge"
+    SLASH_CLASSICAUTOSAYGE2= "/cas"
+    SlashCmdList.CLASSICAUTOSAYGE = function(msg)
+        A:SlashCommand(msg)
+    end
+    
+    A:CreateOptionsMenu()
+    A.loaded = true
 end
 
-local function SkipGossip()
-    local void, gossipType = GetGossipOptions()
-    if gossipType then
-        if gossipType == "gossip" then
-            local gossipOptionsNum = GetNumGossipOptions()
-            if gossipOptionsNum == 1 then
-                SelectGossipOption(1)
-            end
-            if gossipOptionsNum == 4 then
-                print("Selecting Option " .. firstOption)
-                SelectGossipOption(firstOption)
-            end
-            if gossipOptionsNum == 3 then
-                print("Selecting Option " .. secondOption)
-                SelectGossipOption(secondOption)
-            end
-        end
+function E:PLAYER_ENTERING_WORLD(login, reloadUI)
+    if (login or reloadUI) and ClassicAutoSayge.loginMessage and A.loaded then
+        print(A.addonName .. "loaded - /cas")
+        print("|cff" .. A.colorHex .. "firstOption: |r" .. ClassicAutoSayge.firstOption)
+        print("|cff" .. A.colorHex .. "secondOption: |r" .. ClassicAutoSayge.secondOption)
     end
 end
 
-casRegisterEvents()
-
-casFrame:SetScript("OnEvent", function(__, event)
-    if (event == "GOSSIP_SHOW") then
-        local npcGuid = UnitGUID("target") or nil
-        if npcGuid then
-            local void, void, void, void, void, npcID = strsplit("-", npcGuid)
-            if npcID then
-                if npcID == "14822" -- Sayge
-                then
-                    SkipGossip()
-                    return
+function E:GOSSIP_SHOW()
+    local npcGuid = UnitGUID("target") or nil
+    if npcGuid then
+        local void, void, void, void, void, npcID = strsplit("-", npcGuid)
+        if npcID then
+            -- Sayge
+            if npcID == "14822" then 
+                local void, gossipType = GetGossipOptions()
+                if gossipType then
+                    if gossipType == "gossip" then
+                        local gossipOptionsNum = GetNumGossipOptions()
+                        if gossipOptionsNum == 1 then
+                            SelectGossipOption(1)
+                        end
+                        if gossipOptionsNum == 4 then
+                            SelectGossipOption(ClassicAutoSayge.firstOption)
+                        end
+                        if gossipOptionsNum == 3 then
+                            SelectGossipOption(ClassicAutoSayge.secondOption)
+                        end
+                    end
                 end
             end
         end
     end
-end)
+end
+
+function A:SlashCommand(args)
+    local command = strsplit(" ", args, 1)
+    command = command:lower()
+    InterfaceOptionsFrame_OpenToCategory(A.optionsPanel)
+    InterfaceOptionsFrame_OpenToCategory(A.optionsPanel)
+end
