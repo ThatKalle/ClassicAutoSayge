@@ -1,3 +1,9 @@
+-- File: ClassicAutoSaygeOptions.lua
+-- Name: ClassicAutoSayge
+-- Author: ThatKalle
+-- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
+-- Version: 2.0.1
+
 local _, A = ...
 
 function A:CreateOptionsMenu()
@@ -24,7 +30,7 @@ function A:CreateOptionsMenu()
     firstOptionBox:SetCursorPosition(0)
     firstOptionBox:SetAutoFocus(false)
     firstOptionBox:SetScript("OnEscapePressed", function(self)
-        self:ClearFocus() 
+        self:ClearFocus()
     end)
     firstOptionBox:SetScript("OnKeyUp", function(self)
         ClassicAutoSayge.firstOption = self:GetText()

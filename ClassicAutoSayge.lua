@@ -2,7 +2,7 @@
 -- Name: ClassicAutoSayge
 -- Author: ThatKalle
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
--- Version: 2.0.0
+-- Version: 2.0.1
 
 local _, A = ...
 
@@ -14,27 +14,27 @@ E:RegisterEvent("ADDON_LOADED")
 E:RegisterEvent("PLAYER_ENTERING_WORLD")
 E:RegisterEvent("GOSSIP_SHOW")
 E:SetScript("OnEvent", function(self, event, ...)
-  return self[event] and self[event](self, ...)
+    return self[event] and self[event](self, ...)
 end)
 
 function E:ADDON_LOADED(name)
-    if name ~= "ClassicAutoSayge" then 
+    if name ~= "ClassicAutoSayge" then
         return
     end
     ClassicAutoSayge = ClassicAutoSayge or {}
     ClassicAutoSayge.firstOption = ClassicAutoSayge.firstOption or ""
     ClassicAutoSayge.secondOption = ClassicAutoSayge.secondOption or ""
-  
-    if ClassicAutoSayge.loginMessage == nil then 
-        ClassicAutoSayge.loginMessage = true 
+
+    if ClassicAutoSayge.loginMessage == nil then
+        ClassicAutoSayge.loginMessage = true
     end
-    
+
     SLASH_CLASSICAUTOSAYGE1= "/ClassicAutoSayge"
     SLASH_CLASSICAUTOSAYGE2= "/cas"
     SlashCmdList.CLASSICAUTOSAYGE = function(msg)
         A:SlashCommand(msg)
     end
-    
+
     A:CreateOptionsMenu()
     A.loaded = true
 end
@@ -53,7 +53,7 @@ function E:GOSSIP_SHOW()
         local void, void, void, void, void, npcID = strsplit("-", npcGuid)
         if npcID then
             -- Sayge
-            if npcID == "14822" then 
+            if npcID == "14822" then
                 local void, gossipType = GetGossipOptions()
                 if gossipType then
                     if gossipType == "gossip" then
