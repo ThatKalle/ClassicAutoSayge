@@ -2,7 +2,7 @@
 -- Name: ClassicAutoSayge
 -- Author: ThatKalle
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
--- Version: 2.0.1
+-- Version: 2.1.0
 
 local _, A = ...
 
@@ -18,7 +18,7 @@ function A:CreateOptionsMenu()
 
     local firstOptionHeader = optionsPanel:CreateFontString(nil, "OVERLAY")
     firstOptionHeader:SetFontObject("GameFontNormal")
-    firstOptionHeader:SetText("firstOption")
+    firstOptionHeader:SetText("First Option")
     firstOptionHeader:SetPoint("TOPLEFT", text, "BOTTOMLEFT", 0, -15)
 
     local firstOptionBox = CreateFrame("EditBox", "firstOptionBox", optionsPanel, "InputBoxTemplate")
@@ -39,12 +39,11 @@ function A:CreateOptionsMenu()
         ClassicAutoSayge.firstOption = self:GetText()
         self:ClearFocus()
     end)
-
     optionsPanel.firstOptionBox = firstOptionBox
 
     local secondOptionHeader = optionsPanel:CreateFontString(nil, "OVERLAY")
     secondOptionHeader:SetFontObject("GameFontNormal")
-    secondOptionHeader:SetText("secondOption")
+    secondOptionHeader:SetText("Second Option")
     secondOptionHeader:SetPoint("TOPLEFT", text, "TOPRIGHT", 30, -35)
 
     local secondOptionBox = CreateFrame("EditBox", "secondOptionBox", optionsPanel, "InputBoxTemplate")
@@ -65,7 +64,6 @@ function A:CreateOptionsMenu()
         ClassicAutoSayge.secondOption = self:GetText()
         self:ClearFocus()
     end)
-
     optionsPanel.secondOptionBox = secondOptionBox
 
     local loginMessage = CreateFrame("CheckButton", nil, optionsPanel, "UICheckButtonTemplate")

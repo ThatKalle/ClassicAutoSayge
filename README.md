@@ -10,9 +10,9 @@ Make sure the folder is named `ClassicAutoSayge` in your `Interface\AddOns` fold
 
  * `/ClassicAutoSayge` or `/cas` -- Options panel
 
-You can change the answers you want to be picked by changing the values for `firstOption` and `secondOption` to your desired answers.
+You can change the answers you want to be picked by changing the values for `First Option` and `Second Option` to your desired answers.
 
-| Fortune | firstOption  | secondOption |
+| Fortune | First Option  | Second Option |
 | ------------- | ------------- | ------------- |
 | [Sayge's Dark Fortune of Agility](https://classic.wowhead.com/spell=23736/sayges-dark-fortune-of-agility) (+10% Agility) | 3  | 3  |
 | [Sayge's Dark Fortune of Armor](https://classic.wowhead.com/spell=23767/sayges-dark-fortune-of-armor) (+10% Armor) | 3  | 3  |
@@ -25,5 +25,6 @@ You can change the answers you want to be picked by changing the values for `fir
 
 ### Special Thanks
 
- * [Kim Brandt](https://github.com/myrveln)
+ * [Contributors](https://github.com/ThatKalle/ClassicAutoSayge/graphs/contributors)
  * [@rainfordays](https://github.com/rainfordays)
+ * [Leatrix](https://www.curseforge.com/members/leatrix)
