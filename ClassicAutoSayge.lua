@@ -2,7 +2,7 @@
 -- Name: ClassicAutoSayge
 -- Author: ThatKalle
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
--- Version: 2.1.0
+-- Version: 2.1.1
 
 local _, A = ...
 
@@ -72,10 +72,10 @@ function E:GOSSIP_SHOW()
                                 SelectGossipOption(1)
                             end
                             if gossipOptionsNum == 4 then
-                                SelectGossipOption(tonumber(ClassicAutoSayge.firstOption))
+                                SelectGossipOption(ClassicAutoSayge.firstOption)
                             end
                             if gossipOptionsNum == 3 then
-                                SelectGossipOption(tonumber(ClassicAutoSayge.secondOption))
+                                SelectGossipOption(ClassicAutoSayge.secondOption)
                             end
                         end
                     end

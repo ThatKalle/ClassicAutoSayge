@@ -2,7 +2,7 @@
 -- Name: ClassicAutoSayge
 -- Author: ThatKalle
 -- Description: A minimalist Darkmoon Faire Sayge auto gossip Addon.
--- Version: 2.1.0
+-- Version: 2.1.1
 
 local _, A = ...
 
