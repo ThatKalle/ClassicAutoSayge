@@ -1,0 +1,21 @@
+name: Lint
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: [./ClassicAutoSayge.lua, ./ClassicAutoSaygeOptions.lua]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: WoW Lua Lint
+        uses: davidcraig/action-wow-lint@v1.0.1
+        with:
+          path-to-files: ${{ matrix.file }}
