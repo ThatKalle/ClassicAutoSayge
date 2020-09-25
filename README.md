@@ -1,5 +1,7 @@
 # ClassicAutoSayge
 
+![Lint](https://github.com/ThatKalle/ClassicAutoSayge/workflows/Lint/badge.svg?branch=master)
+
 Upon interaction with [Sayge](https://classic.wowhead.com/npc=14822/sayge) in Darkmoon Faire the addon will automatically collect the [Sayge's Dark Fortune](https://classic.wowhead.com/search?q=sayges+dark+fortune) buff of your choosing.
 
 ## Installation
